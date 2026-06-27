@@ -1,911 +1,1089 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <base target="_top">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>ABSENSI LINE TOGEL - OPTIMIZED</title>
+  <title>ABSENSI LINE TOGEL</title>
   
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%92%3C/text%3E%3C/svg%3E">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
   <style>
-    /* ========== CSS ========== */
+    /* ====== CSS SAMA SEPERTI SEBELUMNYA + TAMBAHAN UNTUK JAM KERJA & PERINGATAN ====== */
     :root {
-      --primary: #8E44AD;
-      --primary-light: #d05ce3;
-      --primary-dark: #6a0080;
-      --secondary: #3498DB;
-      --success: #4caf50;
-      --danger: #E74C3C;
-      --warning: #F39C12;
-      --dark: #2C3E50;
-      --light: #ECF0F1;
-      --gray: #757575;
+      --primary: #6c5ce7;
+      --primary-glow: rgba(108, 92, 231, 0.4);
+      --secondary: #00cec9;
+      --success: #00b894;
+      --success-glow: rgba(0, 184, 148, 0.25);
+      --danger: #ff7675;
+      --warning: #fdcb6e;
+      --dark-bg: #0f0f1a;
+      --sidebar-bg: #16162a;
+      --card-bg: rgba(30, 30, 50, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --text-main: #ffffff;
+      --text-muted: #a0a0a0;
     }
 
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       min-height: 100vh;
-      line-height: 1.6;
-      color: var(--light);
-      background-image: url('https://cdn.areabermain.club/assets/cdn/az6/2026/01/08/20260108/0e9b0ec9a88ad88a5935bc5802bc41a5/linetogel-background-07januari2026.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-color: #1a1a2e;
+      background: var(--dark-bg);
+      color: var(--text-main);
+      overflow-x: hidden;
+      position: relative;
     }
 
-    .container { 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      padding: 20px; 
-    }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; pointer-events: none; }
+    .orb-1 { width: 400px; height: 400px; background: var(--primary); top: -100px; left: -100px; opacity: 0.15; }
+    .orb-2 { width: 400px; height: 400px; background: var(--secondary); bottom: -100px; right: -100px; opacity: 0.1; }
 
-    .header {
-      background: linear-gradient(135deg, rgba(142, 68, 173, 0.9), rgba(106, 0, 128, 0.9));
-      color: white; 
-      padding: 25px; 
+    /* LOGIN PAGE */
+    .login-page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .login-card {
+      background: var(--sidebar-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 30px 25px;
+      width: 100%;
+      max-width: 400px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .login-logo {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 30px;
+      color: white;
+      box-shadow: 0 10px 20px var(--primary-glow);
+    }
+    .login-title {
       text-align: center;
-      border-radius: 15px; 
-      margin-bottom: 25px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      position: relative; 
-      overflow: hidden;
-      backdrop-filter: blur(5px); 
-      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 5px;
     }
-
-    .header h1 { 
-      font-size: 2.2rem; 
-      margin-bottom: 10px; 
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3); 
+    .login-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 30px;
     }
-    
-    .header-info {
-      display: flex; 
-      justify-content: space-between;
-      background: rgba(0,0,0,0.2); 
-      padding: 12px 20px; 
-      border-radius: 50px;
-      font-size: 0.9rem; 
-      margin-top: 15px; 
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255,255,255,0.1);
-      flex-wrap: wrap;
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .input-group i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary);
+      font-size: 1rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 14px 14px 14px 45px;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .btn-login {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), #5849c4);
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 10px;
+      transition: opacity 0.2s;
+      margin-top: 10px;
     }
-
-    .header-info span { 
-      display: flex; 
-      align-items: center; 
-      gap: 8px; 
-    }
-
-    .dashboard { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 20px; 
-      margin-bottom: 30px; 
-    }
-
-    .stat-card {
-      background: rgba(44, 62, 80, 0.7); 
-      border-radius: 15px; 
-      padding: 25px; 
+    .btn-login:active { opacity: 0.8; }
+    .btn-login:disabled { opacity: 0.5; cursor: not-allowed; }
+    .login-error {
+      color: var(--danger);
+      font-size: 0.9rem;
+      margin-top: 15px;
       text-align: center;
-      backdrop-filter: blur(10px); 
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      min-height: 20px;
     }
 
-    .stat-card:hover {
-      transform: translateY(-5px);
+    /* APP LAYOUT (DESKTOP) */
+    @media (min-width: 901px) {
+      .app-layout {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 30px;
+        padding: 30px;
+        max-width: 1400px;
+        margin: 0 auto;
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: sticky;
+        top: 30px;
+        height: fit-content;
+        background: var(--sidebar-bg);
+        padding: 25px;
+        border-radius: 24px;
+        border: 1px solid var(--glass-border);
+      }
+
+      .main-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .mobile-header { display: none; }
+      .web-header { display: block; text-align: center; margin-bottom: 10px; }
+      
+      .staff-list { max-height: calc(100vh - 200px); }
     }
 
-    .stat-card i { 
-      font-size: 2.5rem; 
-      margin-bottom: 15px; 
-      display: block; 
+    /* MOBILE LAYOUT */
+    @media (max-width: 900px) {
+      .app-layout { display: block; padding: 15px; }
+      .sidebar { margin-bottom: 20px; box-shadow: none; background: transparent; padding: 0; border: none; }
+      .web-header { display: none; }
+      
+      .mobile-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+        margin-bottom: 15px;
+        border-bottom: 1px solid var(--glass-border);
+      }
+      .m-logo {
+        width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 12px; display: flex; align-items: center; justify-content: center;
+        font-size: 18px; color: white; box-shadow: 0 5px 15px var(--primary-glow);
+      }
+      .m-title h1 { font-size: 1.1rem; font-weight: 800; }
+      .m-title p { font-size: 0.7rem; color: var(--text-muted); }
+      
+      .live-badge-m {
+        background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 20px;
+        font-size: 0.7rem; display: flex; align-items: center; gap: 5px; border: 1px solid var(--glass-border);
+      }
+      .live-dot { width: 6px; height: 6px; background: #636e72; border-radius: 50%; }
+      .live-dot.connected { background: var(--success); box-shadow: 0 0 5px var(--success); }
+      
+      .date-mobile {
+        display: flex; gap: 10px; margin-bottom: 15px; font-size: 0.8rem;
+      }
+      .date-mobile span { background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 8px; color: var(--text-muted); }
+      .date-mobile i { margin-right: 5px; color: var(--primary); }
+
+      /* Stats container lebih kecil di mobile */
+      .stats-container { 
+        margin-bottom: 20px; 
+        gap: 5px;
+      }
+      .stat-box {
+        padding: 8px 5px;
+        border-radius: 12px;
+      }
+      .stat-num { 
+        font-size: 1.2rem; 
+      }
+      .stat-label { 
+        font-size: 0.55rem; 
+      }
     }
-    
-    .stat-card h3 { 
-      font-size: 1.1rem; 
-      margin-bottom: 10px; 
-      color: rgba(255,255,255,0.9); 
+
+    /* KOMPONEN UMUM */
+    .stats-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .stat-box {
+      background: var(--card-bg); backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border); border-radius: 16px; padding: 15px 10px;
+      text-align: center;
     }
-    
-    .stat-card .value { 
-      font-size: 2rem; 
-      font-weight: 700; 
-    }
-    
-    .total-staff .value { color: var(--primary-light); }
-    .present .value { color: var(--success); }
-    .absent .value { color: var(--danger); }
+    .stat-num { font-size: 1.6rem; font-weight: 800; line-height: 1; }
+    .stat-label { font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); margin-top: 5px; }
+    .stat-box.hadir .stat-num { color: var(--success); }
+    .stat-box.belum .stat-num { color: var(--danger); }
 
     .card {
-      background: rgba(44, 62, 80, 0.7); 
-      border-radius: 15px; 
-      padding: 25px; 
-      margin-bottom: 30px;
-      backdrop-filter: blur(10px); 
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    .card h2 { 
-      font-size: 1.5rem; 
-      margin-bottom: 20px; 
-      color: white; 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
+      background: var(--card-bg); backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border); border-radius: 20px;
+      padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
     
-    .card h2 i { color: var(--primary-light); }
-
-    .form-group { margin-bottom: 20px; }
+    .form-label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; font-weight: 500; }
     
-    .form-group label { 
-      display: block; 
-      margin-bottom: 8px; 
-      font-weight: 500; 
-      color: rgba(255,255,255,0.9); 
-    }
-    
-    .form-control {
-      width: 100%; 
-      padding: 12px 15px; 
-      border: 2px solid rgba(255,255,255,0.1);
-      border-radius: 10px; 
-      font-size: 1rem; 
-      background: rgba(0,0,0,0.3); 
-      color: white;
-      transition: all 0.3s; 
-      font-family: 'Poppins', sans-serif;
-    }
-    
-    .form-control:focus { 
-      border-color: var(--primary); 
-      outline: none; 
-      box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.3); 
-    }
-
-    .btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
-      color: white; 
-      border: none;
-      padding: 14px 25px; 
-      border-radius: 10px; 
-      font-size: 1rem; 
-      font-weight: 600;
-      cursor: pointer; 
-      transition: all 0.3s; 
-      display: inline-flex; 
-      align-items: center;
-      justify-content: center; 
-      gap: 10px; 
-      width: 100%; 
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      text-transform: uppercase; 
-      letter-spacing: 1px;
-    }
-    
-    .btn:hover { 
-      transform: translateY(-2px); 
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
-    }
-    
-    .btn:disabled { 
-      opacity: 0.7; 
-      cursor: not-allowed; 
-      background: var(--gray); 
-    }
-
-    .btn-refresh {
-      background: rgba(52, 152, 219, 0.2);
-      color: var(--secondary);
-      border: 1px solid var(--secondary);
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.3s;
+    /* User info card */
+    .user-info-card {
       display: flex;
       align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-    }
-
-    .btn-refresh:hover {
-      background: rgba(52, 152, 219, 0.3);
-    }
-
-    .table-controls {
-      display: flex;
       gap: 15px;
+      background: rgba(255,255,255,0.05);
+      padding: 15px;
+      border-radius: 16px;
       margin-bottom: 20px;
-      align-items: flex-end;
+      min-height: 80px; /* untuk skeleton */
     }
-
-    .table-controls .form-group {
-      flex: 1;
-      margin-bottom: 0;
-    }
-
-    .table-responsive { 
-      overflow-x: auto; 
-      border-radius: 10px; 
-      margin-top: 20px; 
-      max-height: 500px;
-      overflow-y: auto;
-    }
-    
-    table { 
-      width: 100%; 
-      border-collapse: collapse; 
-      background: rgba(44, 62, 80, 0.7); 
-      border-radius: 10px; 
-      overflow: hidden; 
-      min-width: 600px;
-    }
-    
-    th { 
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
-      color: white; 
-      padding: 15px; 
-      text-align: center; 
-      font-weight: 600; 
-      text-transform: uppercase; 
-      font-size: 0.8rem; 
-      position: sticky;
-      top: 0;
-    }
-    
-    td { 
-      padding: 12px 15px; 
-      border-bottom: 1px solid rgba(255,255,255,0.05); 
-      text-align: center; 
-      color: rgba(255,255,255,0.9); 
-    }
-    
-    tr:hover td { background: rgba(255,255,255,0.03); }
-    
-    .status { 
-      padding: 6px 12px; 
-      border-radius: 20px; 
-      font-size: 0.8rem; 
-      font-weight: 600; 
-      display: inline-block; 
-      min-width: 100px; 
-    }
-    
-    .present { 
-      background: rgba(76, 175, 80, 0.15); 
-      color: var(--success); 
-      border: 1px solid var(--success); 
-    }
-    
-    .absent { 
-      background: rgba(244, 67, 54, 0.15); 
-      color: var(--danger); 
-      border: 1px solid var(--danger); 
-    }
-    
-    .time-format { 
-      font-family: 'Courier New', monospace; 
-      color: var(--secondary); 
-      font-weight: 500;
-    }
-
-    .btn-action {
-      background: rgba(142, 68, 173, 0.2);
-      color: var(--primary-light);
-      border: 1px solid var(--primary-light);
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: inline-flex;
+    .user-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
       align-items: center;
-      gap: 5px;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+    .user-detail h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .user-detail p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .btn-submit {
+      width: 100%; padding: 12px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), #5849c4);
+      border: none; color: white; font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: opacity 0.2s;
+    }
+    .btn-submit:active { opacity: 0.8; }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-logout {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    .btn-logout:hover {
+      background: rgba(255,255,255,0.15);
     }
 
-    .btn-action:hover {
-      background: rgba(142, 68, 173, 0.3);
+    .list-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 15px;
+    }
+    .list-title { font-size: 1rem; font-weight: 700; }
+    
+    .search-box { position: relative; width: 150px; }
+    .search-box input { padding: 6px 10px 6px 30px; font-size: 0.8rem; width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 8px; color: white; }
+    .search-box i { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 0.7rem; color: var(--text-muted); }
+
+    .staff-list { display: flex; flex-direction: column; gap: 8px; overflow-y: auto; padding-right: 5px; }
+    .staff-list::-webkit-scrollbar { width: 4px; }
+    .staff-list::-webkit-scrollbar-thumb { background: rgba(108, 92, 231, 0.5); border-radius: 10px; }
+
+    .staff-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(255,255,255,0.02); padding: 12px 15px; border-radius: 12px;
+      border: 1px solid transparent; transition: all 0.2s;
+    }
+    
+    .staff-row.is-hadir {
+      background: var(--success-glow);
+      border-color: rgba(0, 184, 148, 0.2);
+    }
+    .staff-row.is-hadir .status-badge { background: var(--success); color: white; }
+    .staff-row.is-hadir .avatar { background: var(--success); }
+
+    .staff-row.is-belum .status-badge { background: rgba(255,255,255,0.1); color: var(--text-muted); }
+    
+    /* Tambahan untuk status peringatan */
+    .status-badge.status-terlambat { background: var(--danger); color: white; }
+    .status-badge.status-bisa { background: var(--warning); color: #2d3436; }
+
+    /* Efek kedap-kedip untuk baris dengan status BISA ABSEN */
+    @keyframes blinkWarning {
+      0% { background-color: rgba(253, 203, 110, 0.1); border-color: var(--warning); }
+      50% { background-color: rgba(253, 203, 110, 0.3); border-color: var(--warning); }
+      100% { background-color: rgba(253, 203, 110, 0.1); border-color: var(--warning); }
+    }
+    .staff-row.blink-warning {
+      animation: blinkWarning 1s infinite;
+      border: 1px solid var(--warning);
+    }
+
+    /* Warna merah untuk baris terlambat */
+    .staff-row.terlambat-row {
+      background: rgba(255, 118, 117, 0.1);
+      border-color: var(--danger);
+    }
+
+    .user-info-small {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .avatar-small {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(135deg, #636e72, #2d3436);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.8rem; color: white;
+    }
+    
+    .user-detail-small h4 { font-size: 0.9rem; font-weight: 600; }
+    .user-detail-small span { font-size: 0.7rem; color: var(--text-muted); }
+
+    .status-badge {
+      padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; font-weight: 700;
+      text-transform: uppercase; display: inline-block; min-width: 100px; text-align: center;
+    }
+    .time-display { font-size: 0.7rem; color: rgba(255,255,255,0.7); font-weight: 500; margin-top: 4px; text-align: center; }
+
+    /* Tooltip atau catatan kecil */
+    .warning-note {
+      font-size: 0.6rem;
+      color: var(--warning);
+      margin-left: 5px;
+      display: inline-block;
+      font-weight: 600;
+    }
+    .staff-row .note {
+      font-size: 0.6rem;
+      color: var(--warning);
+      margin-top: 2px;
+      font-style: italic;
     }
 
     /* Loading Overlay */
-    .loading {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(5px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
+    .loading-overlay {
+      position: fixed; inset: 0; background: var(--dark-bg); z-index: 9999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.2s;
     }
-
-    .loading-content {
-      background: rgba(44, 62, 80, 0.9);
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    .loader-circle {
+      width: 50px; height: 50px; border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: var(--primary);
+      animation: spin 0.8s linear infinite;
     }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    .spinner {
+    /* Skeleton loading */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .skeleton {
+      background: linear-gradient(90deg, #2a2a3a 25%, #3a3a4a 50%, #2a2a3a 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 8px;
+    }
+    .skeleton-avatar {
       width: 50px;
       height: 50px;
-      border: 4px solid rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      border-top-color: var(--primary);
-      animation: spin 1s linear infinite;
-      margin: 0 auto 20px;
+      border-radius: 16px;
+      background: linear-gradient(90deg, #2a2a3a 25%, #3a3a4a 50%, #2a2a3a 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+    .skeleton-line {
+      height: 16px;
+      width: 100%;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, #2a2a3a 25%, #3a3a4a 50%, #2a2a3a 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 4px;
+    }
+    .skeleton-line.short {
+      width: 60%;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+    .loader-text { margin-top: 15px; color: var(--text-muted); font-size: 0.8rem; }
 
-    /* Toast Notifications */
-    .toast-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1001;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 400px;
-    }
-
+    /* Toast */
     .toast {
-      background: rgba(44, 62, 80, 0.95);
-      backdrop-filter: blur(10px);
-      border-left: 5px solid;
-      padding: 15px 20px;
-      border-radius: 10px;
-      color: white;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      animation: slideIn 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
+      padding: 12px 20px; border-radius: 10px; font-size: 0.9rem; font-weight: 500;
+      z-index: 10000; opacity: 0; transition: all 0.2s;
+      background: #333; color: white;
     }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .toast.success { background: var(--success); }
+    .toast.error { background: var(--danger); }
+    .toast.warning { background: #fdcb6e; color: #2d3436; }
 
-    .toast.success { border-left-color: var(--success); }
-    .toast.error { border-left-color: var(--danger); }
-    .toast.warning { border-left-color: var(--warning); }
-    .toast.info { border-left-color: var(--secondary); }
-
-    @keyframes slideIn {
-      from {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    .toast.fade-out {
-      animation: fadeOut 0.3s ease forwards;
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        transform: translateX(100%);
-      }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .container { padding: 15px; }
-      .header h1 { font-size: 1.8rem; }
-      .dashboard { grid-template-columns: 1fr; }
-      .card { padding: 20px; }
-      .header-info { 
-        flex-direction: column; 
-        align-items: flex-start; 
-        gap: 10px; 
-      }
-      .header-info span { justify-content: flex-start; }
-      .table-controls { flex-direction: column; }
-      .table-controls .form-group { width: 100%; }
-      .btn-refresh { width: 100%; justify-content: center; }
-      th, td { padding: 10px 8px; font-size: 0.8rem; }
-      .mobile-hidden { display: none; }
-      .table-responsive { max-height: 400px; }
-    }
-
-    @media (max-width: 480px) {
-      .header { padding: 20px 15px; }
-      .header h1 { font-size: 1.5rem; }
-      .stat-card { padding: 20px; }
-      .stat-card .value { font-size: 1.8rem; }
-      .btn { padding: 12px 20px; font-size: 0.9rem; }
-    }
+    #mainApp { display: none; }
   </style>
 </head>
 <body>
-  <!-- ========== HTML STRUCTURE ========== -->
-  <div class="container">
-    <header class="header">
-      <h1><i class="fas fa-fingerprint"></i> ABSENSI LINE TOGEL</h1>
-      <p>Sistem Absensi Digital - Optimized Version</p>
-      <div class="header-info">
-        <span id="currentDate"><i class="far fa-calendar-alt"></i> Loading...</span>
-        <span id="currentTime"><i class="far fa-clock"></i> Loading...</span>
-        <span id="lastUpdate"><i class="fas fa-sync-alt"></i> Updated: <span id="updateTime">Just now</span></span>
-      </div>
-    </header>
 
-    <div class="dashboard">
-      <div class="stat-card total-staff">
-        <i class="fas fa-users"></i>
-        <h3>Total Staff</h3>
-        <div class="value" id="totalStaff">0</div>
-      </div>
-      <div class="stat-card present">
-        <i class="fas fa-user-check"></i>
-        <h3>Sudah Absen</h3>
-        <div class="value" id="presentCount">0</div>
-      </div>
-      <div class="stat-card absent">
-        <i class="fas fa-user-clock"></i>
-        <h3>Belum Absen</h3>
-        <div class="value" id="absentCount">0</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2><i class="fas fa-edit"></i> Form Absensi</h2>
-      <div class="form-group">
-        <label for="staffSelect"><i class="fas fa-user-tag"></i> Pilih Nama Anda</label>
-        <select id="staffSelect" class="form-control">
-          <option value="">-- Pilih Nama --</option>
-        </select>
-      </div>
-      <button class="btn" id="submitBtn">
-        <i class="fas fa-paper-plane"></i> ABSEN SEKARANG
-      </button>
-    </div>
-
-    <div class="card">
-      <h2><i class="fas fa-list-ol"></i> Rekap Absensi Hari Ini</h2>
-      <div class="table-controls">
-        <div class="form-group">
-          <label for="staffSearch"><i class="fas fa-search"></i> Cari Data Staff</label>
-          <input type="text" id="staffSearch" class="form-control" placeholder="Ketik nama atau jabatan...">
-        </div>
-        <button class="btn-refresh" id="refreshBtn">
-          <i class="fas fa-sync-alt"></i> Refresh Data
-        </button>
-      </div>
-      <div class="table-responsive">
-        <table id="attendanceTable">
-          <thead>
-            <tr>
-              <th class="mobile-hidden">NO</th>
-              <th>NAMA</th>
-              <th class="mobile-hidden">JABATAN</th>
-              <th>STATUS</th>
-              <th>WAKTU</th>
-              <th>ACTION</th>
-            </tr>
-          </thead>
-          <tbody id="attendanceBody">
-            <tr><td colspan="6" style="text-align: center;">Memuat data...</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
 
   <!-- Loading Overlay -->
-  <div class="loading" id="loading">
-    <div class="loading-content">
-      <div class="spinner"></div>
-      <p>Loading data...</p>
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loader-circle"></div>
+    <div class="loader-text" id="loadingText">MEMERIKSA SESSION...</div>
+  </div>
+
+  <!-- Halaman Login -->
+  <div id="loginPage" class="login-page" style="display: none;">
+    <div class="login-card">
+      <div class="login-logo">
+        <i class="fas fa-fingerprint"></i>
+      </div>
+      <div class="login-title">LINE TOGEL</div>
+      <div class="login-sub">Absensi Harian</div>
+
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" id="loginUsername" class="form-control" placeholder="Username" autocomplete="off">
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="loginPassword" class="form-control" placeholder="Password">
+      </div>
+
+      <button class="btn-login" id="loginBtn" onclick="handleLogin()">
+        <i class="fas fa-sign-in-alt"></i> MASUK
+      </button>
+      <div class="login-error" id="loginError"></div>
     </div>
   </div>
 
-  <!-- Toast Notification -->
-  <div class="toast-container" id="toastContainer"></div>
+  <!-- Aplikasi Utama -->
+  <div class="app-layout" id="mainApp">
+    
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      
+      <!-- Web Header (Desktop) -->
+      <div class="web-header">
+        <div style="width:60px;height:60px;background:linear-gradient(135deg, var(--primary), var(--secondary));border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;font-size:26px;box-shadow: 0 10px 20px var(--primary-glow);">
+          <i class="fas fa-fingerprint"></i>
+        </div>
+        <h1 style="font-size:1.2rem;font-weight:800;">LINE TOGEL</h1>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:5px;">Absensi Harian</p>
+        
+        <div class="live-badge-m" style="justify-content:center; margin-top:10px; margin-bottom:20px;">
+          <div class="live-dot" id="liveDotDesk"></div>
+          <span id="liveTextDesk">OFFLINE</span>
+        </div>
+      </div>
 
-  <!-- ========== JAVASCRIPT ========== -->
+      <!-- Mobile Header -->
+      <div class="mobile-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div class="m-logo"><i class="fas fa-fingerprint"></i></div>
+          <div class="m-title">
+            <h1>LINE TOGEL</h1>
+            <p id="currentTimeMobile">--:--:--</p>
+          </div>
+        </div>
+        <div class="live-badge-m">
+          <div class="live-dot" id="liveDotMob"></div>
+          <span id="liveTextMob">OFFLINE</span>
+        </div>
+      </div>
+
+      <div class="date-mobile" id="dateMobile">
+        <span><i class="fas fa-calendar"></i> <span id="currentDateMobile">-</span></span>
+      </div>
+
+      <!-- Stats (sudah diperkecil untuk mobile via CSS) -->
+      <div class="stats-container">
+        <div class="stat-box">
+          <div class="stat-num" id="totalStaff">0</div>
+          <div class="stat-label">Total</div>
+        </div>
+        <div class="stat-box hadir">
+          <div class="stat-num" id="presentCount">0</div>
+          <div class="stat-label">Absen</div> <!-- Ubah "Bangun" menjadi "Absen" -->
+        </div>
+        <div class="stat-box belum">
+          <div class="stat-num" id="absentCount">0</div>
+          <div class="stat-label">Belum</div>
+        </div>
+      </div>
+
+      <!-- User Info dan Absensi -->
+      <div class="card" style="margin-bottom:0;">
+        <div class="form-label">Anda Login Sebagai</div>
+        <div id="userInfoContainer" class="user-info-card">
+          <!-- Akan diisi oleh JavaScript, default skeleton akan ditampilkan jika tidak ada data -->
+        </div>
+        <button class="btn-submit" id="submitBtn" onclick="handleMarkAttendance()">
+          <i class="fas fa-check-circle"></i> ABSEN
+        </button>
+        <button class="btn-logout" id="logoutBtn" onclick="handleLogout()">
+          <i class="fas fa-sign-out-alt"></i> LOGOUT
+        </button>
+      </div>
+      
+      <div style="margin-top:auto; text-align:center; color:var(--text-muted); font-size:0.75rem; display:none;" id="desktopDateWrap">
+         <span id="currentDateDesktop"></span>
+      </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      
+      <div class="card" style="margin-bottom:0; height:100%; display:flex; flex-direction:column;">
+        <div class="list-header">
+          <div class="list-title">Rekap Hari Ini</div>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="staffSearch" placeholder="Cari..." oninput="filterTable()">
+          </div>
+        </div>
+        <div class="staff-list" id="attendanceBody"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
   <script>
-    // Konfigurasi
-    const CONFIG = {
-      refreshInterval: 30000, // Refresh otomatis setiap 30 detik
-      cacheKey: 'absensi_cache',
-      cacheDuration: 5 * 60 * 1000 // 5 menit
-    };
+    // ========== KONFIGURASI ==========
+    const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbzXd5pu9E8Ejn4Mo1r6EfG49AdFBcKsmwxcJHEjpylWrWgntckxrQDk7nRo1505-SRK/exec';
 
-    // State management
-    let state = {
-      staffData: [],
-      isLoading: false,
-      lastUpdated: null,
-      autoRefreshInterval: null
-    };
+    let staffData = [];
+    let isProcessing = false;
+    let currentUser = null; // { username, nama }
+    let currentStaff = null; // data staff yang sesuai dengan user login
+    let currentTimeStr = "00:00:00"; // untuk menyimpan waktu sekarang format HH:MM:SS
 
-    // DOM Elements
+    // Elemen DOM
     const elements = {
-      loading: document.getElementById('loading'),
-      staffSelect: document.getElementById('staffSelect'),
+      loading: document.getElementById('loadingOverlay'),
+      loadingText: document.getElementById('loadingText'),
+      loginPage: document.getElementById('loginPage'),
+      mainApp: document.getElementById('mainApp'),
+      loginUsername: document.getElementById('loginUsername'),
+      loginPassword: document.getElementById('loginPassword'),
+      loginBtn: document.getElementById('loginBtn'),
+      loginError: document.getElementById('loginError'),
+      userInfoContainer: document.getElementById('userInfoContainer'),
       submitBtn: document.getElementById('submitBtn'),
+      logoutBtn: document.getElementById('logoutBtn'),
       attendanceBody: document.getElementById('attendanceBody'),
       totalStaff: document.getElementById('totalStaff'),
       presentCount: document.getElementById('presentCount'),
       absentCount: document.getElementById('absentCount'),
-      staffSearch: document.getElementById('staffSearch'),
-      currentDate: document.getElementById('currentDate'),
-      currentTime: document.getElementById('currentTime'),
-      updateTime: document.getElementById('updateTime'),
-      refreshBtn: document.getElementById('refreshBtn'),
-      toastContainer: document.getElementById('toastContainer')
+      toast: document.getElementById('toast'),
+      liveDotMob: document.getElementById('liveDotMob'),
+      liveTextMob: document.getElementById('liveTextMob'),
+      currentTimeMobile: document.getElementById('currentTimeMobile'),
+      currentDateMobile: document.getElementById('currentDateMobile'),
+      liveDotDesk: document.getElementById('liveDotDesk'),
+      liveTextDesk: document.getElementById('liveTextDesk'),
+      desktopDateWrap: document.getElementById('desktopDateWrap'),
+      currentDateDesktop: document.getElementById('currentDateDesktop'),
+      staffSearch: document.getElementById('staffSearch')
     };
 
-    // Initialize
-    document.addEventListener('DOMContentLoaded', () => {
-      initApp();
-    });
+    // ========== INISIALISASI ==========
+    (function init() {
+      const savedUser = sessionStorage.getItem('currentUser');
+      if (savedUser) {
+        try {
+          currentUser = JSON.parse(savedUser);
+          showMainApp();
+        } catch (e) {
+          sessionStorage.removeItem('currentUser');
+          showLogin();
+        }
+      } else {
+        showLogin();
+      }
 
-    function initApp() {
-      // Setup event listeners
-      elements.submitBtn.addEventListener('click', handleAttendance);
-      elements.staffSearch.addEventListener('input', filterTable);
-      elements.refreshBtn.addEventListener('click', () => loadData(true));
-      
-      // Start auto refresh
-      state.autoRefreshInterval = setInterval(() => loadData(), CONFIG.refreshInterval);
-      
-      // Load initial data
-      loadData();
-      
-      // Start clock
+      if (window.location.protocol === 'file:') {
+        elements.loadingText.innerText = "Buka via hosting (file:// tidak didukung)";
+        throw new Error("Local file blocked");
+      }
+
       updateClock();
       setInterval(updateClock, 1000);
+    })();
+
+    function showLogin() {
+      elements.loading.style.display = 'none';
+      elements.loginPage.style.display = 'flex';
+      elements.mainApp.style.display = 'none';
     }
 
-    // Data Functions
-    function loadData(forceRefresh = false) {
-      if (state.isLoading) return;
-      
-      // Check cache first
-      if (!forceRefresh) {
-        const cached = getCachedData();
-        if (cached && (Date.now() - cached.timestamp) < CONFIG.cacheDuration) {
-          state.staffData = cached.data;
-          renderUI();
-          showToast('Data loaded from cache', 'info');
-          return;
-        }
-      }
-      
-      state.isLoading = true;
-      showLoading(true);
-      
-      // Call Google Apps Script function
-      google.script.run
-        .withSuccessHandler((response) => {
-          if (response && response.success) {
-            state.staffData = response.data;
-            state.lastUpdated = new Date();
-            
-            // Cache data
-            cacheData(state.staffData);
-            
-            renderUI();
-            showToast('Data updated successfully', 'success');
-          } else {
-            throw new Error(response?.message || 'Failed to load data');
-          }
-          state.isLoading = false;
-          showLoading(false);
-        })
-        .withFailureHandler((error) => {
-          console.error('Load data error:', error);
-          
-          // Fallback to cached data
-          const cached = getCachedData();
-          if (cached) {
-            state.staffData = cached.data;
-            renderUI();
-            showToast('Using cached data (offline mode)', 'warning');
-          } else {
-            showToast('Failed to load data. Please check connection.', 'error');
-          }
-          state.isLoading = false;
-          showLoading(false);
-        })
-        .getStaffData();
-    }
-
-    function cacheData(data) {
-      const cache = {
-        data: data,
-        timestamp: Date.now()
-      };
-      localStorage.setItem(CONFIG.cacheKey, JSON.stringify(cache));
-    }
-
-    function getCachedData() {
-      const cached = localStorage.getItem(CONFIG.cacheKey);
-      return cached ? JSON.parse(cached) : null;
-    }
-
-    // UI Functions
-    function renderUI() {
-      renderStaffSelect();
-      renderTable();
-      updateDashboard();
-      updateTimestamp();
-    }
-
-    function renderStaffSelect() {
-      const select = elements.staffSelect;
-      const currentValue = select.value;
-      
-      select.innerHTML = '<option value="">-- Pilih Nama --</option>';
-      
-      // Filter hanya yang belum absen
-      const pendingStaff = state.staffData.filter(staff => staff.status !== 'Sudah Absen');
-      
-      // Sort by name
-      const sortedData = [...pendingStaff].sort((a, b) => a.nama.localeCompare(b.nama));
-      
-      sortedData.forEach(staff => {
-        const option = document.createElement('option');
-        option.value = staff.id;
-        option.textContent = `${staff.nama} ${staff.jabatan ? `(${staff.jabatan})` : ''}`;
-        select.appendChild(option);
-      });
-      
-      // Restore previous selection if still valid
-      if (currentValue) {
-        select.value = currentValue;
+    function showMainApp() {
+      elements.loading.style.display = 'none';
+      elements.loginPage.style.display = 'none';
+      elements.mainApp.style.display = 'grid';
+      // Tampilkan skeleton segera
+      showSkeletonUserInfo();
+      startSync();
+      if (window.innerWidth > 900) {
+        elements.desktopDateWrap.style.display = 'block';
       }
     }
 
-    function renderTable(data = state.staffData) {
-      const tbody = elements.attendanceBody;
-      
-      if (!data || data.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center;">Tidak ada data</td></tr>';
-        return;
-      }
-      
-      tbody.innerHTML = '';
-      
-      // Sort: Sudah absen di atas, belum absen di bawah
-      const sortedData = [...data].sort((a, b) => {
-        if (a.status === 'Sudah Absen' && b.status !== 'Sudah Absen') return -1;
-        if (a.status !== 'Sudah Absen' && b.status === 'Sudah Absen') return 1;
-        return a.nama.localeCompare(b.nama);
-      });
-      
-      sortedData.forEach(staff => {
-        const row = document.createElement('tr');
-        
-        row.innerHTML = `
-          <td class="mobile-hidden">${staff.id}</td>
-          <td>
-            <div class="staff-info">
-              <strong>${staff.nama}</strong>
-              <small class="mobile-hidden">${staff.jabatan || '-'}</small>
-            </div>
-          </td>
-          <td class="mobile-hidden">${staff.jabatan || '-'}</td>
-          <td>
-            <span class="status ${staff.status === 'Sudah Absen' ? 'present' : 'absent'}">
-              ${staff.status}
-              <i class="fas ${staff.status === 'Sudah Absen' ? 'fa-check' : 'fa-clock'}"></i>
-            </span>
-          </td>
-          <td class="time-format">${staff.waktu || '-'}</td>
-          <td>
-            ${staff.status !== 'Sudah Absen' 
-              ? `<button class="btn-action" onclick="quickMarkAttendance('${staff.id}')">
-                   <i class="fas fa-check"></i> Absen
-                 </button>`
-              : '<span class="time-format">✓</span>'
-            }
-          </td>
-        `;
-        
-        tbody.appendChild(row);
-      });
-    }
-
-    function filterTable() {
-      const term = elements.staffSearch.value.toLowerCase().trim();
-      
-      if (!term) {
-        renderTable();
-        return;
-      }
-      
-      const filtered = state.staffData.filter(staff =>
-        staff.nama.toLowerCase().includes(term) ||
-        (staff.jabatan && staff.jabatan.toLowerCase().includes(term)) ||
-        staff.id.toLowerCase().includes(term)
-      );
-      
-      renderTable(filtered);
-    }
-
-    function updateDashboard() {
-      const presentCount = state.staffData.filter(s => s.status === 'Sudah Absen').length;
-      
-      elements.totalStaff.textContent = state.staffData.length;
-      elements.presentCount.textContent = presentCount;
-      elements.absentCount.textContent = state.staffData.length - presentCount;
-    }
-
-    function updateTimestamp() {
-      if (!state.lastUpdated) return;
-      
-      const now = new Date();
-      const diff = Math.floor((now - state.lastUpdated) / 1000);
-      
-      if (diff < 60) {
-        elements.updateTime.textContent = 'Baru saja';
-      } else if (diff < 3600) {
-        elements.updateTime.textContent = `${Math.floor(diff / 60)} menit yang lalu`;
-      } else {
-        const timeString = state.lastUpdated.toLocaleTimeString('id-ID', {
-          hour: '2-digit',
-          minute: '2-digit'
-        });
-        elements.updateTime.textContent = timeString;
-      }
+    function showSkeletonUserInfo() {
+      elements.userInfoContainer.innerHTML = `
+        <div style="display:flex; align-items:center; gap:15px; width:100%;">
+          <div class="skeleton-avatar"></div>
+          <div style="flex:1">
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-line" style="width:80%;"></div>
+          </div>
+        </div>
+      `;
     }
 
     function updateClock() {
       const now = new Date();
+      const days = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+      const dStr = `${days[now.getDay()]}, ${now.toLocaleDateString('id-ID')}`;
+      const tStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
       
-      // Format date
-      const dateOptions = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      };
-      elements.currentDate.innerHTML = `<i class="far fa-calendar-alt"></i> ${now.toLocaleDateString('id-ID', dateOptions)}`;
+      // Simpan currentTimeStr untuk perbandingan jam kerja
+      currentTimeStr = tStr;
       
-      // Format time
-      const time = now.toLocaleTimeString('id-ID', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      elements.currentTime.innerHTML = `<i class="far fa-clock"></i> ${time} WIB`;
+      if (elements.currentTimeMobile) elements.currentTimeMobile.innerText = tStr;
+      if (elements.currentDateMobile) elements.currentDateMobile.innerText = dStr;
+      if (elements.currentDateDesktop) elements.currentDateDesktop.innerText = dStr;
+
+      // Perbarui tampilan tabel setiap detik agar peringatan waktu real-time
+      filterTable();
     }
 
-    // Attendance Functions
-    async function handleAttendance() {
-      const staffId = elements.staffSelect.value;
+    function formatWaktu(waktuStr) {
+      if (!waktuStr || waktuStr === '-') return null;
+      if (typeof waktuStr === 'string' && waktuStr.match(/^\d{2}:\d{2}:\d{2}$/)) return waktuStr;
+      try {
+        const dateObj = new Date(waktuStr);
+        if (!isNaN(dateObj.getTime())) {
+          return `${String(dateObj.getHours()).padStart(2, '0')}:${String(dateObj.getMinutes()).padStart(2, '0')}:${String(dateObj.getSeconds()).padStart(2, '0')}`;
+        }
+      } catch (e) { return null; }
+      return null;
+    }
+
+    function setLiveStatus(status) {
+      // Ubah teks LIVE menjadi ONLINE
+      const dotClass = status === 'connected' ? 'connected' : '';
+      const text = status === 'connected' ? 'ONLINE' : 'OFFLINE';
+      if (elements.liveDotMob) {
+        elements.liveDotMob.className = `live-dot ${dotClass}`;
+        elements.liveTextMob.innerText = text;
+      }
+      if (elements.liveDotDesk) {
+        elements.liveDotDesk.className = `live-dot ${dotClass}`;
+        elements.liveTextDesk.innerText = text;
+      }
+    }
+
+    // ========== API REQUEST DENGAN HANDLING RESPON ==========
+    async function apiRequest(action, method = 'GET', body = null) {
+      let url = BACKEND_URL + '?action=' + action;
+      let options = { 
+        method: method, 
+        mode: 'cors', 
+        cache: 'no-cache',
+        headers: {}
+      };
       
-      if (!staffId) {
-        showToast('Silakan pilih nama Anda terlebih dahulu!', 'warning');
-        elements.staffSelect.focus();
+      if (method === 'POST') {
+        options.body = JSON.stringify(body);
+        options.headers['Content-Type'] = 'text/plain';
+      }
+
+      try {
+        console.log('Mengirim request ke:', url, options);
+        const response = await fetch(url, options);
+        const text = await response.text();
+        console.log('Respons mentah:', text);
+        
+        // Coba cek apakah respons dimulai dengan { atau [ (JSON)
+        if (text.trim().startsWith('{') || text.trim().startsWith('[')) {
+          return JSON.parse(text);
+        } else {
+          // Jika bukan JSON, mungkin error HTML
+          console.error('Respons bukan JSON:', text);
+          throw new Error('Server mengembalikan data bukan JSON. Periksa URL backend atau konsol untuk detail.');
+        }
+      } catch (fetchError) {
+        console.error('Fetch error:', fetchError);
+        throw new Error('Koneksi error: ' + fetchError.message);
+      }
+    }
+
+    // ========== LOGIN (CASE-INSENSITIVE) ==========
+    async function handleLogin() {
+      // Ubah username ke huruf kecil agar case-insensitive saat dikirim ke backend
+      const rawUsername = elements.loginUsername.value.trim();
+      const username = rawUsername.toLowerCase();   // <--- CASE-INSENSITIVE
+      const password = elements.loginPassword.value.trim();
+      
+      if (!rawUsername || !password) {
+        elements.loginError.innerText = 'Username dan password harus diisi';
         return;
       }
-      
-      await markAttendance(staffId);
+
+      elements.loginBtn.disabled = true;
+      elements.loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+      elements.loginError.innerText = '';
+
+      try {
+        const result = await apiRequest('login', 'POST', { username, password });
+        console.log('Hasil login:', result);
+        if (result.success) {
+          currentUser = result.user;
+          sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+          showMainApp();
+        } else {
+          elements.loginError.innerText = result.message || 'Login gagal';
+        }
+      } catch (err) {
+        elements.loginError.innerText = err.message;
+      } finally {
+        elements.loginBtn.disabled = false;
+        elements.loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> MASUK';
+      }
     }
 
-    async function quickMarkAttendance(staffId) {
-      await markAttendance(staffId);
+    // ========== LOGOUT ==========
+    function handleLogout() {
+      sessionStorage.removeItem('currentUser');
+      currentUser = null;
+      currentStaff = null;
+      showLogin();
     }
 
-    async function markAttendance(staffId) {
-      if (state.isLoading) return;
-      
-      const staff = state.staffData.find(s => s.id === staffId);
-      if (!staff) {
+    // ========== SINKRONISASI DATA STAFF ==========
+    async function startSync() {
+      try {
+        const result = await apiRequest('load');
+        if (result.success) {
+          // Filter staff dengan nama tidak kosong, tambah default jam_kerja dan cuti
+          staffData = result.data.filter(staff => staff.nama && staff.nama.trim() !== "").map(staff => {
+            // Jika tidak ada jam_kerja dari backend, beri default "07:45:00"
+            if (!staff.jam_kerja) staff.jam_kerja = "07:45:00";
+            
+            // CEK JAM KERJA: jika mengandung kata "cuti" (case insensitive), set cuti = true
+            if (staff.jam_kerja && staff.jam_kerja.toLowerCase().includes('cuti')) {
+              staff.cuti = true;
+            } else {
+              // Jika tidak, gunakan field cuti dari backend (jika ada)
+              staff.cuti = staff.cuti === true || staff.cuti === "true" || staff.cuti === "Cuti" ? true : false;
+            }
+            
+            return staff;
+          });
+          
+          // Cari data staff yang sesuai dengan user login (case-insensitive)
+          if (currentUser) {
+            const usernameLower = String(currentUser.username).toLowerCase();
+            // Cari berdasarkan id (username) dengan case-insensitive
+            currentStaff = staffData.find(s => String(s.id).toLowerCase() === usernameLower);
+            
+            // Fallback: cari berdasarkan nama (case-insensitive) jika tidak ditemukan
+            if (!currentStaff) {
+              currentStaff = staffData.find(s => s.nama.toLowerCase() === currentUser.nama.toLowerCase());
+            }
+          }
+          
+          updateUI();
+          setLiveStatus('connected');
+        } else {
+          throw new Error(result.message);
+        }
+      } catch (err) {
+        console.error("Sync Error:", err);
+        setLiveStatus('disconnected');
+        showToast('Gagal memuat data: ' + err.message, 'error');
+      }
+      setTimeout(startSync, 4000);
+    }
+
+    function updateUI() {
+      updateStats();
+      updateUserInfo();
+      const searchVal = elements.staffSearch ? elements.staffSearch.value : '';
+      renderTable(searchVal);
+    }
+
+    function updateStats() {
+      // Hanya hitung staff yang tidak cuti (aktif)
+      const activeStaff = staffData.filter(s => !s.cuti);
+      const total = activeStaff.length;
+      const present = activeStaff.filter(s => s.status === 'Sudah Absen').length;
+      elements.totalStaff.innerText = total;
+      elements.presentCount.innerText = present;
+      elements.absentCount.innerText = total - present;
+    }
+
+    function updateUserInfo() {
+      if (currentStaff) {
+        const initial = currentStaff.nama.substring(0, 2).toUpperCase();
+        const isHadir = currentStaff.status === 'Sudah Absen';
+        const isCuti = currentStaff.cuti;
+        let statusText = isHadir ? 'Sudah Absen' : (isCuti ? 'Cuti' : 'Belum Absen');
+        const waktu = isHadir ? formatWaktu(currentStaff.waktu) : '-';
+        
+        elements.userInfoContainer.innerHTML = `
+          <div class="user-avatar">${initial}</div>
+          <div class="user-detail">
+            <h3>${currentStaff.nama}</h3>
+            <p>${currentStaff.jabatan || 'Staff'} · Jam kerja ${currentStaff.jam_kerja} · ${statusText} ${waktu !== '-' ? 'jam ' + waktu : ''}</p>
+          </div>
+        `;
+        
+        // Disable tombol jika sudah hadir atau sedang cuti
+        elements.submitBtn.disabled = isHadir || isCuti;
+        if (isCuti) {
+          elements.submitBtn.innerHTML = '<i class="fas fa-ban"></i> CUTI';
+        } else if (isHadir) {
+          elements.submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> SUDAH ABSEN';
+        } else {
+          elements.submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> ABSEN';
+        }
+      } else {
+        // Jika currentStaff tidak ditemukan, tampilkan skeleton loading
+        showSkeletonUserInfo();
+        elements.submitBtn.disabled = true;
+        elements.submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> LOADING...';
+      }
+    }
+
+    // Fungsi konversi waktu "HH:MM:SS" ke detik
+    function timeToSeconds(timeStr) {
+      if (!timeStr) return 0;
+      const parts = timeStr.split(':');
+      if (parts.length === 3) {
+        return (+parts[0]) * 3600 + (+parts[1]) * 60 + (+parts[2]);
+      }
+      return 0;
+    }
+
+    function renderTable(filter = "") {
+      const tbody = elements.attendanceBody;
+      // Hanya tampilkan staff yang TIDAK CUTI (aktif) di dashboard
+      let data = staffData.filter(s => !s.cuti);
+
+      if (filter) {
+        data = data.filter(s => s.nama.toLowerCase().includes(filter.toLowerCase()));
+      }
+
+      if (data.length === 0) {
+        tbody.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted);opacity:0.5">Tidak ada data</div>';
+        return;
+      }
+
+      // ===== FITUR PINTAR DENGAN TOLERANSI 15 MENIT =====
+      const nowSec = timeToSeconds(currentTimeStr);
+      const TOLERANSI = 15 * 60; // 15 menit dalam detik
+
+      const upcoming = [];  // Jam kerja > sekarang atau ≤ sekarang namun masih dalam toleransi 15 menit
+      const past = [];      // Jam kerja ≤ sekarang dan sudah lewat lebih dari toleransi
+
+      data.forEach(staff => {
+        const staffJamSec = timeToSeconds(staff.jam_kerja);
+        if (staffJamSec > nowSec) {
+          // Belum lewat
+          upcoming.push(staff);
+        } else {
+          // Sudah lewat atau tepat waktu
+          const selisih = nowSec - staffJamSec;
+          if (selisih <= TOLERANSI) {
+            // Masih dalam toleransi 15 menit -> anggap masih upcoming (tetap di atas)
+            upcoming.push(staff);
+          } else {
+            // Lewat lebih dari 15 menit -> pindah ke grup past (bawah)
+            past.push(staff);
+          }
+        }
+      });
+
+      // Urutkan upcoming secara ascending (yang paling cepat duluan)
+      upcoming.sort((a, b) => timeToSeconds(a.jam_kerja) - timeToSeconds(b.jam_kerja));
+      // Urutkan past secara ascending (jam kerja yang lebih awal lebih dulu) – tidak wajib, tapi rapi
+      past.sort((a, b) => timeToSeconds(a.jam_kerja) - timeToSeconds(b.jam_kerja));
+
+      // Gabungkan: upcoming di atas, past di bawah
+      const sortedData = upcoming.concat(past);
+      // =================================================
+
+      let html = '';
+      sortedData.forEach(staff => {
+        const isHadir = staff.status === 'Sudah Absen';
+        const time = formatWaktu(staff.waktu);
+        const initial = staff.nama.substring(0, 2).toUpperCase();
+        const rowClass = isHadir ? 'is-hadir' : 'is-belum';
+        
+        // Tentukan status teks dan kelas peringatan berdasarkan jam kerja dan waktu sekarang
+        let statusText = 'MENUNGGU';
+        let statusClass = '';
+        let blinkClass = '';
+        let noteText = '';
+        let terlambatRowClass = '';
+        
+        if (!isHadir && staff.jam_kerja) {
+          const nowSec = timeToSeconds(currentTimeStr);
+          const jamKerjaSec = timeToSeconds(staff.jam_kerja);
+          const batasAwalSec = jamKerjaSec - 15 * 60; // 15 menit sebelum jam kerja
+          
+          if (nowSec >= jamKerjaSec) {
+            statusText = 'TERLAMBAT';
+            statusClass = 'status-terlambat';
+            terlambatRowClass = 'terlambat-row';
+            noteText = '❗ Terlambat';
+          } else if (nowSec >= batasAwalSec && nowSec < jamKerjaSec) {
+            statusText = 'BISA ABSEN';
+            statusClass = 'status-bisa';
+            blinkClass = 'blink-warning';
+            noteText = '⚠️ tolong bangunkan anak ini';
+          } else {
+            statusText = 'MENUNGGU';
+            noteText = '';
+          }
+        } else if (isHadir) {
+          // Ubah "SUDAH BANGUN" menjadi "SUDAH ABSEN"
+          statusText = 'SUDAH ABSEN';
+        }
+        
+        const timeText = isHadir ? time : '-';
+
+        html += `
+          <div class="staff-row ${rowClass} ${blinkClass} ${terlambatRowClass}" title="${noteText}">
+            <div class="user-info-small">
+              <div class="avatar-small">${initial}</div>
+              <div class="user-detail-small">
+                <h4>${staff.nama} ${noteText ? `<span class="warning-note"><i class="fas fa-exclamation-triangle"></i></span>` : ''}</h4>
+                <span>${staff.jabatan || 'Staff'} · ${staff.jam_kerja}</span>
+                ${noteText ? `<div class="note">${noteText}</div>` : ''}
+              </div>
+            </div>
+            <div style="text-align:right">
+              <div class="status-badge ${statusClass}">${statusText}</div>
+              <div class="time-display">${timeText}</div>
+            </div>
+          </div>
+        `;
+      });
+      tbody.innerHTML = html;
+    }
+
+    function filterTable() {
+      const val = elements.staffSearch.value;
+      renderTable(val);
+    }
+
+    async function handleMarkAttendance() {
+      if (isProcessing) return;
+      if (!currentStaff) {
         showToast('Data staff tidak ditemukan', 'error');
         return;
       }
-      
-      if (staff.status === 'Sudah Absen') {
-        showToast(`${staff.nama} sudah absen hari ini`, 'warning');
+      if (currentStaff.cuti) {
+        showToast('Anda sedang cuti, tidak dapat absen', 'warning');
         return;
       }
-      
-      state.isLoading = true;
-      elements.submitBtn.disabled = true;
-      elements.submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROSES...';
-      
-      google.script.run
-        .withSuccessHandler((response) => {
-          if (response.success) {
-            showToast(`Absen berhasil! ${response.nama} - ${response.waktu}`, 'success');
-            
-            // Clear cache dan reload data
-            localStorage.removeItem(CONFIG.cacheKey);
-            loadData(true);
-            
-            // Reset form
-            elements.staffSelect.value = '';
-          } else {
-            showToast(response.message || 'Gagal melakukan absen', 
-                     response.alreadyMarked ? 'warning' : 'error');
+      if (currentStaff.status === 'Sudah Absen') {
+        showToast('Anda sudah absen hari ini', 'warning');
+        return;
+      }
+
+      isProcessing = true;
+      const btn = elements.submitBtn;
+      btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Proses...';
+
+      try {
+        const result = await apiRequest('absen', 'POST', { id: currentStaff.id });
+        if (result.success) {
+          showToast('Berhasil Absen', 'success');
+          // Update data staff
+          currentStaff.status = 'Sudah Absen';
+          currentStaff.waktu = result.waktu;
+          // Update juga di staffData
+          const index = staffData.findIndex(s => s.id === currentStaff.id);
+          if (index !== -1) {
+            staffData[index].status = 'Sudah Absen';
+            staffData[index].waktu = result.waktu;
           }
-          state.isLoading = false;
-          resetSubmitButton();
-        })
-        .withFailureHandler((error) => {
-          console.error('Attendance error:', error);
-          showToast('Terjadi kesalahan saat menghubungi server', 'error');
-          state.isLoading = false;
-          resetSubmitButton();
-        })
-        .markAttendance(staffId);
+          updateUI();
+        } else {
+          showToast(result.message || 'Gagal', 'error');
+        }
+      } catch (err) {
+        showToast(err.message, 'error');
+      } finally {
+        isProcessing = false;
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-check-circle"></i> ABSEN';
+        // Jika sudah absen, button akan didisable oleh updateUserInfo
+        updateUserInfo();
+      }
     }
 
-    function resetSubmitButton() {
-      elements.submitBtn.disabled = false;
-      elements.submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ABSEN SEKARANG';
+    function showToast(msg, type) {
+      const t = elements.toast;
+      t.innerHTML = `<i class="fas ${type==='success'?'fa-check-circle':'fa-exclamation-circle'}"></i> ${msg}`;
+      t.className = `toast show ${type}`;
+      setTimeout(() => t.classList.remove('show'), 3000);
     }
 
-    // Utility Functions
-    function showLoading(show) {
-      elements.loading.style.display = show ? 'flex' : 'none';
-    }
-
-    function showToast(message, type = 'info') {
-      const container = elements.toastContainer;
-      const toast = document.createElement('div');
-      toast.className = `toast ${type}`;
-      
-      const icons = {
-        success: 'fa-check-circle',
-        error: 'fa-exclamation-circle',
-        warning: 'fa-exclamation-triangle',
-        info: 'fa-info-circle'
-      };
-      
-      toast.innerHTML = `
-        <i class="fas ${icons[type] || icons.info}"></i>
-        <span>${message}</span>
-      `;
-      
-      container.appendChild(toast);
-      
-      // Auto remove after 5 seconds
-      setTimeout(() => {
-        toast.classList.add('fade-out');
-        setTimeout(() => {
-          if (toast.parentNode) {
-            container.removeChild(toast);
-          }
-        }, 300);
-      }, 5000);
-    }
-
-    // Export untuk inline event handlers
-    window.quickMarkAttendance = quickMarkAttendance;
+    // Event listener untuk Enter di form login
+    document.getElementById('loginPassword').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        handleLogin();
+      }
+    });
+    document.getElementById('loginUsername').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        document.getElementById('loginPassword').focus();
+      }
+    });
   </script>
 </body>
 </html>
